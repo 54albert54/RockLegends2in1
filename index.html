@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RockLegends</title>
+  <link rel="stylesheet" href="./stylesheet.css">
+</head>
+
+<body >
+
+  <div class="mainContainer">
+
+
+
+    <div class="card gameStar">
+      
+      
+      <button class="button" onclick="gameStart()  "> Modo Clasico</button>
+      <!-- <button class="buttons" onclick="showopciones()  "> OPCIONES</button> -->
+      <div class=""  onclick="specialmodef()" >
+        <img  onclick="specialmodef()" src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/0cd0c8bc4dc15c069dba7ccfb6809f6d.png" alt="hola">
+       </div>
+
+    </div>
+
+    <div class="card opciones noMostrar">
+      <div>
+        <button class="button" > segundos</button>
+        <button class="button" onclick="shangeTime(30)  " > 30 </button>
+        <button class="button" onclick="shangeTime(60)  " > 60 </button>
+        <button class="button special" onclick="shangeTime(120)  " > 120 </button>
+      </div>
+
+    </div>
+    <div class="gameOver noMostrar">
+      <h1>Fin <br>de la partida</h1>
+      <div>tu puntuaje fue : <br>
+        <samp id="puntuaje">  </samp>
+        <br>
+        <button class="button" onclick="location.reload()"> Reinicar</button>
+      </div>
+
+      </p>
+    </div>
+    <div class="botones noMostrar">
+
+      <div onclick="pushIzquierda()" onmousedown="pushIzquierda()" onmouseup="releaseButons()" id="botonIzquiera"
+        class="botone"></div>
+      <div onclick="pushArriba()" onmousedown="pushArriba()" onmouseup="releaseButons()" id="botonArriba"
+        class="botone"> </div>
+      <div onclick="pushAbajo()" onmousedown="pushAbajo()" onmouseup="releaseButons()" id="botonAbajo" class="botone">
+      </div>
+      <div onclick="pushDerecha()" onmousedown="pushDerecha()" onmouseup="releaseButons()" id="botonDerecho"
+        class="botone"> </div>
+    </div>
+
+    <div class="main">
+      <canvas id="canvas">
+        <img id="layer1" class="noMostrar" src="./assets/layer1.png" alt="imagendelfondo">
+        <img id="layer2" class="noMostrar" src="./assets/layer2.png" alt="imagendelfondo">
+        <img id="layer3" class="noMostrar" src="./assets/layer3.png" alt="imagendelfondo">
+        <img id="layer4" class="noMostrar" src="./assets/layer4.png" alt="imagendelfondo">
+      </canvas>
+    </div>
+
+    <div class="cubreFalta"> </div>
+  </div>
+  <script>
+    const div2 =document.querySelector('.cubreFalta')
+    div2.addEventListener('touchmove',(e)=>{
+     e.preventDefault()
+    })
+    const canvas2 = document.getElementById('canvas')
+    canvas2.addEventListener('touchmove',(e)=>{
+     e.preventDefault()
+    })
+  </script>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
