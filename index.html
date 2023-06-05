@@ -45,15 +45,15 @@
 
       </p>
     </div>
-    <div class="botones noMostrar">
+    <div  class="botones nt noMostrar ">
 
-      <div onclick="pushIzquierda()" onmousedown="pushIzquierda()" onmouseup="releaseButons()" id="botonIzquiera"
+      <div class="nt" onclick="pushIzquierda()" onmousedown="pushIzquierda()" onmouseup="releaseButons()" id="botonIzquiera"
         class="botone"></div>
-      <div onclick="pushArriba()" onmousedown="pushArriba()" onmouseup="releaseButons()" id="botonArriba"
+      <div class="nt" onclick="pushArriba()" onmousedown="pushArriba()" onmouseup="releaseButons()" id="botonArriba"
         class="botone"> </div>
-      <div onclick="pushAbajo()" onmousedown="pushAbajo()" onmouseup="releaseButons()" id="botonAbajo" class="botone">
+      <div class="nt" onclick="pushAbajo()" onmousedown="pushAbajo()" onmouseup="releaseButons()" id="botonAbajo" class="botone">
       </div>
-      <div onclick="pushDerecha()" onmousedown="pushDerecha()" onmouseup="releaseButons()" id="botonDerecho"
+      <div class="nt" onclick="pushDerecha()" onmousedown="pushDerecha()" onmouseup="releaseButons()" id="botonDerecho"
         class="botone"> </div>
     </div>
 
@@ -70,6 +70,10 @@
   </div>
   <script>
     const div2 =document.querySelector('.cubreFalta')
+    div2.addEventListener('touchmove',(e)=>{
+     e.preventDefault()
+    })
+    const div3 =document.querySelector('.nt')
     div2.addEventListener('touchmove',(e)=>{
      e.preventDefault()
     })
