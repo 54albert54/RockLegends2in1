@@ -1,5 +1,3 @@
-
-
 const canvas = document.getElementById('canvas');
 const c = canvas.getContext('2d');
 const puntuaje = document.getElementById('puntuaje')
@@ -8,6 +6,14 @@ const divGameOver = document.querySelector('.gameOver')
 const botonera = document.querySelector('.botones')
 const inicio = document.querySelector('.gameStar')
 const opciones = document.querySelector('.opciones')
+
+const poitn1st = document.getElementById('poitn1st')
+const poitn2st = document.getElementById('poitn2st')
+const poitn3st = document.getElementById('poitn3st')
+
+const time1st = document.getElementById('time1st')
+const time2st = document.getElementById('time2st')
+const time3st = document.getElementById('time3st')
 
 canvas.width = 64 * 18;  //32
 canvas.height = 64 * 32;  //18
@@ -56,6 +62,38 @@ let flechasDerecha = [];
 let flechasIzquierda = [];
 let flechasArriba = [];
 let flechasAbajo = [];
+const nameDatos ='DATOS1'
+let parsedItem =  {record:[1,2,3],timer:[1,2,3]}
+
+const showRecords =(a,b)=>{
+
+  
+  poitn1st.innerHTML = a[0]
+  poitn2st.innerHTML = a[1]
+  poitn3st.innerHTML = a[2]
+  time1st.innerHTML = b[0]
+  time2st.innerHTML = b[1]
+  time3st.innerHTML = b[2]
+   
+
+
+}
+
+
+try {
+  const localStorageItem =localStorage.getItem(nameDatos)
+
+if (!localStorageItem){
+  localStorage.getItem(nameDatos,JSON.stringify(initialValue))
+  parsedItem ={record:[1,2,3],timer:[1,2,3]}
+  showRecords(parsedItem.record,parsedItem.timer)
+}else {
+  parsedItem =JSON.parse(localStorageItem)
+  showRecords(parsedItem.record,parsedItem.timer)
+  }
+  } catch (error) {
+  
+}
 
 
 
@@ -82,6 +120,8 @@ class Game {
       gameOver = true,
         puntuaje.innerText = this.score
       mensajeGameOver()
+      
+    
     }
   };
   update2(deltatime) {
@@ -125,6 +165,24 @@ const nuevaFlechaAmarilla = () => {
 const nuevaFlechaAzul = () => {
   flechasAbajo.push(new Flecha(xAzul, yAzul, flechaazul))
 }
+
+const safeLocalStorage =()=>{
+
+  if (parsedItem.record[0]<game.score){
+ 
+  parsedItem.record.unshift(game.score)
+  parsedItem.record.pop() 
+  parsedItem.timer.unshift(segundos)
+  parsedItem.timer.pop()
+  const datosJSON =(JSON.stringify( parsedItem)); 
+ 
+    localStorage.setItem(nameDatos,datosJSON)}
+    }
+
+
+
+
+
 
 const dificultad = () => {
   switch (segundos) {
@@ -175,6 +233,11 @@ const dificultad = () => {
 
   }
 }
+
+
+
+
+
 
 
 class Extras {
@@ -340,13 +403,11 @@ class Player {
             transicionalArrow.markForDelete = true
           pintar = true
           setTimeout(() => {
-
             player.frameY = 0
             gF.frameY = 0
             game.score++
             makePoint = true
             pintar = false
-
           }, 500);
         }
       }
@@ -389,6 +450,7 @@ const pushIzquierda = () => { player.keys.push('ArrowLeft'), r2butons() }
 const mensajeGameOver = () => {
   divGameOver.classList.add('mostrar')
   divGameOver.classList.remove('noMostrar')
+  safeLocalStorage()
 
 }
 const r2butons = () => {
@@ -556,3 +618,5 @@ const animate = (timeStamp) => {
     requestAnimationFrame(animate)
   }
 };
+
+

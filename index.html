@@ -18,7 +18,7 @@
     <div class="card gameStar">
       
       
-      <button class="button" onclick="gameStart()  "> Modo Clasico</button>
+      <div class="button" onclick="gameStart()  "> <p>Modo Clasico</p> </div>
       <!-- <button class="buttons" onclick="showopciones()  "> OPCIONES</button> -->
       <div class=""  onclick="specialmodef()" >
         <img  onclick="specialmodef()" src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/0cd0c8bc4dc15c069dba7ccfb6809f6d.png" alt="hola">
@@ -26,24 +26,42 @@
 
     </div>
 
-    <div class="card opciones noMostrar">
+    <div class=" card opciones noMostrar">
       <div>
-        <button class="button" > segundos</button>
-        <button class="button" onclick="shangeTime(30)  " > 30 </button>
+        <p class="n" > segundos</p>
+        <button class="button" onclick="shangeTime(20)  " > 20 </button>
         <button class="button" onclick="shangeTime(60)  " > 60 </button>
         <button class="button special" onclick="shangeTime(120)  " > 120 </button>
+        <button class="button special" onclick="shangeTime(180)  " > 180 </button>
       </div>
 
     </div>
     <div class="gameOver noMostrar">
-      <h1>Fin <br>de la partida</h1>
-      <div>tu puntuaje fue : <br>
-        <samp id="puntuaje">  </samp>
-        <br>
-        <button class="button" onclick="location.reload()"> Reinicar</button>
-      </div>
-
-      </p>
+      
+      <section class="record_card record ">
+        <h1>Your Records</h1>
+  
+        <main class="record_card_container">
+        <div class="r1">
+          <p class="numerouno">1st  puntos: <span id="poitn1st"> </span> </p>
+          <p>2st  puntos: <span id="poitn2st"> </span> </p>
+          <p>3st  puntos: <span id="poitn3st"> </span> </p>
+        </div>
+        <div class="r2">
+          <p class="numerouno" >time: <span id="time1st"></span>  </p>
+          <p>time: <span id="time2st"></span>  </p>
+           <p>time: <span id="time3st"></span>  </p>
+        </div>
+      </main>
+      <p> tu puntuaje <span id="puntuaje">  </span></p> 
+      
+  
+      <button class="button" onclick="location.reload()"> Reinicar</button>
+      </section>  
+        
+        
+      
+      
     </div>
     <div  class="botones nt noMostrar ">
 
@@ -56,6 +74,8 @@
       <div class="nt" onclick="pushDerecha()" onmousedown="pushDerecha()" onmouseup="releaseButons()" id="botonDerecho"
         class="botone"> </div>
     </div>
+
+   
 
     <div class="main">
       <canvas id="canvas">
