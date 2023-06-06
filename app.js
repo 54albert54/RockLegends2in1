@@ -118,7 +118,7 @@ class Game {
 
     if (segundos >= this.maxTime) {
       gameOver = true,
-        puntuaje.innerText = this.score
+        puntuaje.innerHTML =` <p>${this.score}</p>  <br> Suerte para la <br> Proxima!`
       mensajeGameOver()
       
     
@@ -169,7 +169,7 @@ const nuevaFlechaAzul = () => {
 const safeLocalStorage =()=>{
 
   if (parsedItem.record[0]<game.score){
- 
+    puntuaje.innerHTML = `<p>${game.score} </p> <br>  Felicitaciones!! <br> Nuevo Records`
   parsedItem.record.unshift(game.score)
   parsedItem.record.pop() 
   parsedItem.timer.unshift(segundos)
