@@ -282,9 +282,9 @@ font-weight: bold;
 
   .botones {
  
-  opacity: .0;
+  opacity: 0;
  
-  top: 84%;
+  top: 80%;
   width: 100%;
 }
 }
